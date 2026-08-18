@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System aur User ki Zindagi — Vikash Patel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #10162a;
+    --navy-2: #171f38;
+    --ivory: #f2ede0;
+    --gold: #e0a53c;
+    --teal: #2f7a78;
+    --maroon: #7a3346;
+    --line: rgba(242,237,224,0.14);
+    --muted: rgba(242,237,224,0.62);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--navy);
+    color: var(--ivory);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x:hidden;
+  }
+
+  /* background texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(224,165,60,0.07), transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(47,122,120,0.10), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{max-width: 880px; margin:0 auto; padding: 0 28px; position:relative; z-index:1;}
+
+  /* HERO */
+  header.hero{
+    padding: 90px 0 60px;
+    border-bottom: 1px solid var(--line);
+    position:relative;
+  }
+  .badge-row{
+    display:flex; align-items:center; gap:14px; margin-bottom:34px;
+  }
+  .stamp{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing: 0.14em;
+    text-transform:uppercase;
+    color: var(--gold);
+    border:1px solid rgba(224,165,60,0.5);
+    padding:6px 12px;
+    border-radius:2px;
+  }
+  .stamp.maroon{ color:#e8b3c1; border-color: rgba(122,51,70,0.7); background: rgba(122,51,70,0.25);}
+
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: clamp(2.4rem, 6vw, 4.1rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    max-width: 11ch;
+  }
+  h1.title em{
+    font-style:italic;
+    color: var(--gold);
+    font-weight:600;
+  }
+  .subtitle{
+    margin-top:22px;
+    color:var(--muted);
+    font-size:1.05rem;
+    max-width:52ch;
+  }
+
+  .byline{
+    margin-top:42px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .byline .id-card{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color: var(--navy);
+    background: var(--ivory);
+    padding: 10px 16px;
+    border-radius: 3px;
+    display:flex; flex-direction:column; gap:2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    transform: rotate(-2deg);
+  }
+  .byline .id-card .name{ font-weight:700; font-size:13px; letter-spacing:0.02em;}
+  .byline .id-card .role{ color:#555; font-size:10px; text-transform:uppercase; letter-spacing:0.08em;}
+  .byline .id-card .tag{ color: var(--teal); font-size:10px; font-weight:600; margin-top:2px;}
+
+  /* STORY */
+  main{ padding: 70px 0 40px; }
+
+  .story-block{
+    position:relative;
+    padding: 34px 0 34px 32px;
+    border-left: 2px solid var(--line);
+    margin-bottom: 6px;
+  }
+  .story-block::before{
+    content: attr(data-mark);
+    position:absolute;
+    left: -11px; top: 34px;
+    width: 20px; height:20px;
+    border-radius:50%;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+  }
+  .story-block.vip::before{ border-color: var(--gold); color: var(--gold); }
+  .story-block.user::before{ border-color: var(--teal); color: var(--teal); }
+  .story-block.turn::before{ border-color: var(--maroon); color: #e8b3c1; }
+
+  .story-block p{
+    font-size: 1.08rem;
+    color: rgba(242,237,224,0.92);
+  }
+  .story-block p + p{ margin-top: 14px; }
+
+  .story-block .tag-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color: var(--muted);
+    display:block;
+    margin-bottom:10px;
+  }
+
+  strong.hl{
+    color: var(--gold);
+    font-weight:600;
+  }
+  strong.hl.teal{ color:#7fd6c9; }
+
+  /* WAIT TIME STRIP */
+  .wt-strip{
+    margin: 50px 0;
+    background: var(--navy-2);
+    border:1px solid var(--line);
+    border-radius: 8px;
+    padding: 26px 28px;
+  }
+  .wt-strip .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color: var(--gold);
+    margin-bottom:16px;
+    display:block;
+  }
+  .wt-row{
+    display:flex; align-items:center; gap:14px;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+  }
+  .wt-row:last-child{ border-bottom:none; }
+  .wt-row .who{ width: 90px; color: var(--ivory); font-weight:700;}
+  .wt-row .bar-track{ flex:1; height:8px; background: rgba(242,237,224,0.08); border-radius:4px; overflow:hidden;}
+  .wt-row .bar-fill{ height:100%; border-radius:4px; }
+  .wt-row.s .bar-fill{ background: var(--gold); }
+  .wt-row.u .bar-fill{ background: var(--teal); }
+  .wt-row .val{ width: 70px; text-align:right; color: var(--muted); }
+
+  /* LESSON SECTION */
+  section.lessons{
+    padding: 20px 0 60px;
+  }
+  section.lessons h2{
+    font-family:'Fraunces', serif;
+    font-size: 1.9rem;
+    font-weight:600;
+    margin-bottom: 30px;
+  }
+  section.lessons h2 span{ color: var(--gold); }
+
+  .lesson-card{
+    background: var(--navy-2);
+    border:1px solid var(--line);
+    border-left: 3px solid var(--teal);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .lesson-card .quote{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display:block;
+  }
+  .lesson-card p{ font-size: 1rem; color: rgba(242,237,224,0.92); }
+
+  /* CLOSING */
+  .closing{
+    margin-top: 50px;
+    padding: 32px 26px;
+    background: linear-gradient(135deg, rgba(224,165,60,0.12), rgba(47,122,120,0.10));
+    border: 1px solid rgba(224,165,60,0.3);
+    border-radius: 10px;
+    text-align:center;
+  }
+  .closing p{
+    font-family:'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight:600;
+    line-height:1.5;
+  }
+  .closing p em{ color: var(--gold); font-style:italic; }
+
+  footer{
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .brand{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color: var(--muted);
+  }
+  footer .brand b{ color: var(--gold); }
+
+  @media (max-width: 560px){
+    header.hero{ padding: 60px 0 40px; }
+    main{ padding: 46px 0 20px; }
+    .story-block{ padding-left: 22px; }
+    .byline{ flex-wrap:wrap; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .story-block, header.hero, .wt-strip, .lesson-card, .closing{
+      animation: rise 0.7s ease both;
+    }
+    .story-block:nth-of-type(1){ animation-delay: 0.05s; }
+    .story-block:nth-of-type(2){ animation-delay: 0.1s; }
+    .story-block:nth-of-type(3){ animation-delay: 0.15s; }
+    .story-block:nth-of-type(4){ animation-delay: 0.2s; }
+    .story-block:nth-of-type(5){ animation-delay: 0.25s; }
+  }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="badge-row">
+      <span class="stamp">Q1 · System · No Wait</span>
+      <span class="stamp maroon">Q2 · User · Always Waits</span>
+    </div>
+    <h1 class="title">System aur <em>User</em><br>ki Zindagi</h1>
+    <p class="subtitle">Ek Multilevel Queue Scheduling se nikli kahani — jahan priority hamesha fair nahi hoti, aur wait karna sabka naseeb nahi hota.</p>
+
+    <div class="byline">
+      <div class="id-card">
+        <span class="name">VIKASH PATEL</span>
+        <span class="role">Author · Storyteller</span>
+        <span class="tag">● Q1 — Priority Access</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="story-block vip" data-mark="S">
+      <span class="tag-label">t = 0 → 4</span>
+      <p>Ek company thi. Wahan do tarah ke log kaam karte the — <strong class="hl">System log (S1, S2)</strong>, jinke paas hamesha VIP pass tha, aur <strong class="hl teal">User log (U1, U2, U3)</strong>, jo mehnat toh bahut karte the, par unke paas koi pehchaan nahi thi.</p>
+    </div>
+
+    <div class="story-block turn" data-mark="!">
+      <span class="tag-label">The Rule</span>
+      <p>Jab bhi koi VIP (System) office me ghusta, sab kaam turant rukh jaata — chahe User process abhi kitna hi zaroori kaam kar raha ho, use side me dhakel diya jaata.</p>
+    </div>
+
+    <div class="story-block vip" data-mark="S">
+      <span class="tag-label">S1 &amp; S2</span>
+      <p>S1 aaya, chaar ghante kaam kiya, bina kisi rukawat ke — poora respect mila. S2 bhi aaya, teen ghante kaam kiya, bina wait kiye — usse bhi full respect mila.</p>
+    </div>
+
+    <div class="story-block user" data-mark="U">
+      <span class="tag-label">U1 — The One Who Waited Most</span>
+      <p>Lekin U1 — jo sabse pehle office aaya tha, sabse zyada kaam lekar — uska haal dekho. Wo kaam shuru karta, ek minute baad hi S2 aa jaata aur use side kar diya jaata. Fir se line me, fir se wait, fir se turn ka intezaar.</p>
+      <p>Aakhir me U1 ka kaam <strong class="hl">22 ghante</strong> baad complete hua — jisme se <strong class="hl">16 ghante sirf wait karne me</strong> gaye.</p>
+    </div>
+
+    <div class="story-block user" data-mark="U">
+      <span class="tag-label">U2 &amp; U3</span>
+      <p>U2 aur U3 ka bhi yahi haal — 10 aur 12 ghante bekar wait me nikal gaye.</p>
+    </div>
+
+    <div class="story-block turn" data-mark="✕">
+      <span class="tag-label">No Way Up</span>
+      <p>Sabse dukh ki baat? Kisi bhi User process ko kabhi <strong class="hl">promote</strong> nahi kiya gaya. Chahe wo kitni bhi der wait kare, uski priority kabhi nahi badhi. System hamesha upar, User hamesha neeche.</p>
+    </div>
+
+    <div class="wt-strip">
+      <span class="eyebrow">Waiting Time — Kisne Kitna Wait Kiya</span>
+      <div class="wt-row s"><span class="who">S1</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="val">0 hrs</span></div>
+      <div class="wt-row s"><span class="who">S2</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="val">0 hrs</span></div>
+      <div class="wt-row u"><span class="who">U2</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="val">10 hrs</span></div>
+      <div class="wt-row u"><span class="who">U3</span><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><span class="val">12 hrs</span></div>
+      <div class="wt-row u"><span class="who">U1</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="val">16 hrs</span></div>
+    </div>
+
+  </main>
+
+  <section class="lessons">
+    <h2>Isse <span>life ka sabak</span> kya mila</h2>
+
+    <div class="lesson-card">
+      <span class="quote">"Jab bhi koi VIP office me ghusta, sab kaam turant rukh jaata"</span>
+      <p>Life me bhi, jinke paas "priority" hoti hai — paisa, connections, resources — unke saamne baaki logo ka kaam ruk jaata hai. Ye system ka fixed rule hai, ismein emotion nahi hai, sirf priority hai.</p>
+    </div>
+
+    <div class="lesson-card">
+      <span class="quote">"U1 sabse pehle aaya, sabse zyada mehnat ka kaam liya, phir bhi sabse zyada wait kiya"</span>
+      <p>Sirf "pehle aana" ya "zyada mehnat karna" kaafi nahi hota. Agar system me tumhari priority fix nahi hai, toh baar-baar rukna padega, chahe tum kitni bhi mehnat kyun na karo.</p>
+    </div>
+
+    <div class="lesson-card">
+      <span class="quote">"Kisi bhi User process ko kabhi promote nahi kiya gaya"</span>
+      <p>Agar tumhare paas "promotion path" nahi hai — yani agar tum apni situation, skills, network upgrade nahi kar rahe — toh tum hamesha neeche hi rahoge, chahe kitna bhi wait karo.</p>
+    </div>
+
+    <div class="closing">
+      <p>System fair nahi hota, lekin agar tum smart ho toh <em>apni khud ki priority</em> bana sakte ho.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="brand">Written by <b>Vikash Patel</b></span>
+    <span class="brand">Multilevel Queue — Worked Numerical Series</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
