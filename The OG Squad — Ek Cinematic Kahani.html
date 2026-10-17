@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The OG Squad — Ek Cinematic Kahani</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0b0907;--ink:#f1e7d3;--dim:#a99c84;--gold:#f0b44c;--red:#d9483b;--card:#16120d;--line:#2c2418;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#0b0907;--ink:#f1e7d3}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.7;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;background:repeating-radial-gradient(circle at 30% 20%,#fff 0 1px,transparent 1px 3px);animation:g .6s steps(3) infinite}
+@keyframes g{50%{transform:translate(-2px,2px)}}
+.bar{position:fixed;left:0;right:0;height:5vh;background:#000;z-index:40}
+.bar.t{top:0;height:calc(5vh + env(safe-area-inset-top,0px))}.bar.b{bottom:0}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--gold);z-index:60;width:0}
+h1,h2,h3,.cap{font-family:"Bebas Neue",Impact,sans-serif;letter-spacing:.06em;font-weight:400}
+.scene{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:14vh 7vw;max-width:900px;margin:auto}
+.scene.hero{text-align:center;align-items:center;background:radial-gradient(ellipse at 50% 40%,#2a1d0c,var(--bg) 70%);max-width:none}
+h1{font-size:clamp(3.4rem,13vw,9rem);line-height:.95;color:var(--gold);text-shadow:0 0 40px #f0b44c55}
+.sub{font-style:italic;color:var(--dim);margin-top:1.2rem;max-width:30ch}
+.cap{color:var(--red);font-size:1.15rem;margin-bottom:.4rem}
+h2{font-size:clamp(2.2rem,7vw,4rem);line-height:1;margin-bottom:1.2rem;color:var(--gold)}
+p{margin-bottom:1rem}
+em{color:var(--gold)}
+.chat{border-left:3px solid var(--red);padding:.2rem 1rem;margin:1rem 0;font-style:italic;color:var(--dim)}
+.rv{opacity:0;transform:translateY(40px);filter:blur(6px);transition:all 1.1s ease}
+.rv.on{opacity:1;transform:none;filter:none}
+.scroll{position:absolute;bottom:9vh;font-size:.8rem;letter-spacing:.3em;color:var(--dim);animation:b 2s infinite}
+@keyframes b{50%{transform:translateY(8px)}}
+.cards{display:grid;gap:1.4rem;margin-top:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);padding:1.4rem 1.4rem 1.2rem;border-radius:4px}
+.card.out{border-top-color:var(--red)}
+.card h3{font-size:2rem;color:var(--ink)}
+.role{color:var(--red);font-size:.95rem;font-style:italic;margin-bottom:.6rem}
+.tag{display:inline-block;background:var(--gold);color:#000;padding:.15rem .7rem;font-family:"Bebas Neue",Impact,sans-serif;letter-spacing:.07em;font-size:1.15rem;margin:.4rem 0}
+.learn{border-top:1px dashed var(--line);margin-top:.8rem;padding-top:.7rem;font-size:.95rem}
+.learn b{color:var(--gold);font-weight:600}
+.final{text-align:center;align-items:center}
+.final blockquote{font-size:clamp(1.5rem,5vw,2.6rem);font-style:italic;line-height:1.35;color:var(--gold);max-width:22ch}
+.end{font-family:"Bebas Neue",Impact,sans-serif;letter-spacing:.3em;color:var(--dim);margin-top:2rem}
+:root{--glow:#2a1d0c;--bar:#000;--tagink:#000}
+.bar{background:var(--bar)}.tag{color:var(--tagink)}
+.scene.hero{background:radial-gradient(ellipse at 50% 40%,var(--glow),var(--bg) 70%)}
+h1{text-shadow:0 0 40px color-mix(in srgb,var(--gold) 35%,transparent)}
+:root[data-theme=chai]{color-scheme:light;--bg:#f3e6cf;--ink:#2b1d10;--dim:#7a6247;--gold:#a8541a;--red:#b3261e;--card:#fff6e4;--line:#dcc7a3;--glow:#fff3d6;--bar:#2b1d10;--tagink:#fff}
+:root[data-theme=neon]{--bg:#07060f;--ink:#e9e6ff;--dim:#8d86c9;--gold:#2ef2e0;--red:#ff3d9a;--card:#110e22;--line:#2a2250;--glow:#2a0f55;--bar:#000}
+[data-theme=neon] h2,[data-theme=neon] h1{animation:pl 3s ease-in-out infinite}
+@keyframes pl{50%{text-shadow:0 0 28px var(--gold),0 0 4px var(--red)}}
+[data-theme=chai]::after,[data-theme=chai] body::after{opacity:.03}
+.themes{position:fixed;right:10px;top:calc(env(safe-area-inset-top,0px) + 5vh + 8px);z-index:70;display:flex;gap:6px}
+.themes button{font:inherit;font-family:"Bebas Neue",Impact,sans-serif;letter-spacing:.08em;background:var(--card);color:var(--ink);border:1px solid var(--gold);padding:.25rem .7rem;border-radius:20px;cursor:pointer;font-size:.95rem;transition:.3s}
+.themes button.on,.themes button:hover{background:var(--gold);color:var(--tagink)}
+.clap{font-size:4.5rem;animation:cl 2.4s ease-in-out infinite;transform-origin:20% 80%}
+@keyframes cl{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-22deg)}80%{transform:rotate(4deg)}}
+.chat.rv{transform:translateX(-60px)}.chat.rv.on{transform:none}
+.card{transition:transform .4s,box-shadow .4s}.card:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 14px 30px #0006}
+.card.out .tag{background:var(--red);color:#fff;animation:sh 3s infinite}
+@keyframes sh{0%,92%,100%{transform:none}94%{transform:translateX(-4px)}96%{transform:translateX(4px)}98%{transform:translateX(-3px)}}
+.glitch{position:relative;animation:gl 3.5s infinite}
+@keyframes gl{0%,90%,100%{text-shadow:none;transform:none}92%{text-shadow:3px 0 var(--red),-3px 0 var(--gold);transform:skewX(-6deg)}95%{text-shadow:-3px 0 var(--red),3px 0 var(--gold);transform:skewX(5deg)}}
+.fx{position:fixed;bottom:6vh;font-size:1.8rem;z-index:30;pointer-events:none;animation:rise 6s linear forwards;opacity:0}
+@keyframes rise{10%{opacity:.8}100%{transform:translateY(-95vh) rotate(40deg);opacity:0}}
+.lb{margin:1rem 0}.lb div{display:grid;grid-template-columns:7.5rem 1fr 3.2rem;gap:.6rem;align-items:center;margin:.5rem 0;font-size:.95rem}
+.lb i{display:block;height:14px;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:7px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.lb.on i{width:var(--w)}
+.aw{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.aw div{border:1px solid var(--gold);padding:1rem;text-align:center;border-radius:4px;background:var(--card)}
+.aw b{display:block;font-family:"Bebas Neue",Impact,sans-serif;font-size:1.5rem;color:var(--gold);font-weight:400;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div id="prog"></div><div class="bar t"></div><div class="bar b"></div>
+<div class="themes"><button data-t="noir" class="on">NOIR</button><button data-t="chai">CHAI</button><button data-t="neon">NEON</button></div>
+
+<section class="scene hero">
+  <div class="clap">🎬</div>
+  <div class="cap">Ek sachchi chat par based kahani</div>
+  <h1>THE OG<br>SQUAD</h1>
+  <p class="sub">Chai, canteen, chaos aur kuch zyada hi dosti. 13 Feb – 17 Oct 2026.</p>
+  <div class="scroll">SCROLL ↓</div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 01 · 13 Feb 2026</div>
+  <h2 class="rv">Ek group, jiska naam bhi "unofficial" tha</h2>
+  <p class="rv">Vartika Mam ne NIET ke ek function ke baad group banaya — <em>"Niet unofficial"</em>. Videos maangne se shuru hua ye safar. Vernit Sir ne pehle hi din bol diya, <em>"Aap function me aaye hi nahi."</em> Sneha Mam ne jawab diya, <em>"Hum aapki aankhon se dekh rahe hain."</em></p>
+  <p class="rv">Aur group ka admin? Vikas Sir — jo baad me is poori film ke <em>camera man</em> bane. Kaun jaanta tha ki ye "unofficial" group aage jaake sabse official dosti ban jayega.</p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 02 · 23–24 Feb</div>
+  <h2 class="rv">Shubham Sir ki entry… aur pehla "nikaala gaya"</h2>
+  <p class="rv">Sneha Mam ne bola, <em>"Shubham sir video me hain par group me nahi."</em> Add kar diya. Shubham Sir ne aate hi apna intro diya: <em>"Mujhe sirf padhna aata hai."</em></p>
+  <p class="rv">Agle hi din Vernit Sir ne admin power ka maza liya — Shubham Sir ko group se <em>remove</em> kiya, aur turant wapas add bhi kar diya. Pehla twist, pehla prank. Shubham Sir ne bas itna kaha: <em>"Ye kya ho raha hai?"</em></p>
+  <div class="chat rv">"Hamare dost ka harassment hua hai, ab main chup nahi baithunga 😃" — Shubham</div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 03 · Mar – Apr</div>
+  <h2 class="rv">Canteen ki chai aur ek "jodi" ka rumour</h2>
+  <p class="rv">Roz ek hi message: <em>"Chai coffee ke liye aa jao."</em> Sneha Mam ka. Aur jo sabse pehle pahunchta — Shubham Sir. Group ke baaki log dekhte rahe: kabhi "papa ji ke saath ghumi ghumi", kabhi Gaur City mall, kabhi Sneha Mam ke ghar fruits lekar visit.</p>
+  <p class="rv">Vikas Sir ne camera chalaya aur announcement kar di: <em>"I like this duo."</em> Squad ki nazar me Shubham Sir aur Sneha Mam ki jodi pakki thi. Mummy-daddy ko bhi "pata hai" — ye line khud chat me aayi. Dono ne kabhi haan bola, kabhi hansi me taal diya. Rahasya abhi bhi suspense hai 🎬</p>
+  <div class="chat rv">"Humare mummy daddy ko pata h." — Sneha</div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 04 · Parties ka season</div>
+  <h2 class="rv">Birthday, cake aur "party kab milegi?"</h2>
+  <p class="rv"><em>8 March</em> Shubham Sir. <em>10 April</em> Sneha Mam. <em>15 May</em> Vartika Mam. <em>12–13 Aug</em> Vikas Sir. Har birthday par cake, har cake par ek complaint: <em>"Humne party nahi li!"</em> Vernit Sir ne to apni khud ki party na milne ka note bhi chat me daal diya.</p>
+  <p class="rv">9 May ko Vernit Sir ne group ka naam badla — <em>"The OG Squad 😎"</em>. Phir Omaxe, Rishikesh ka plan, Connaught Place ki movie, Jaipur ka poll. Plan Sneha Mam banati, vote hote, aur aakhir me koi na koi bolta — <em>"Main thoda busy hoon."</em></p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 05 · Gym arc</div>
+  <h2 class="rv">Vikas Sir ka trainer-mode</h2>
+  <p class="rv">Shubham Sir ne gym join kiya, banana aur protein shake shuru. Vikas Sir turant <em>personal trainer</em> ban gaye aur Sneha Mam ko offer bhi kiya — fees pe negotiation chali: <em>"Bas 150 rupya dega."</em> Gym band hua to bhi ye teeno ro padhe. Aur hamesha ki tarah, baat ka ant hua ek hi line pe — <em>"Khaane chalein?"</em></p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 06 · 18 March & 3 April</div>
+  <h2 class="rv">Bimaari ka bahana, fruits ka order</h2>
+  <p class="rv">Sneha Mam ghar pe "bimaar" thi. Vikas Sir ne poochha, <em>"Aana padega kya?"</em> Jawab aaya: <em>"1 kg apple, banana, guava aur papaya — bas itna kaafi hoga meri recovery ke liye."</em> Na aa paao to Blinkit se bhijwa do! Vernit Sir ne cab book kar di, aur teen log chal diye.</p>
+  <p class="rv">3 April ko Sneha Mam barish me dheere-dheere gaadi chalakar ghar pahunchi. Vernit Sir ka pehla sawaal: <em>"Raasta to nahi bhuli?"</em> Doosra: <em>"Photos bhej dijiye mam, saari."</em> Sneha Mam ne Snapchat se bhejin — squad ki gallery bharti rahi.</p>
+  <div class="chat rv">"Finally reached home sweet home." — Sneha</div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 07 · 28 May</div>
+  <h2 class="rv">Movie plan: 11 baje cake, 12:35 pe film… aur Shubham Sir missing</h2>
+  <p class="rv">Sneha Mam ki itinerary ekdum film jaisi thi — <em>"11 am cake cutting, 11:30 movie."</em> Phir ek-ek karke bahane aaye: Vikas Sir ki neend, Vernit Sir ka naashta, aur Shubham Sir ka college.</p>
+  <p class="rv">Sneha Mam ne solution diya: <em>"Shubham sir, chakkar khaake gir jana. BP low bol ke aa jana."</em> Aakhir me show 5:45 pe shift hua. Vartika Mam ne apna perfect plan dekh ke bola: <em>"Perfect plan hai 😂"</em>.</p>
+  <div class="chat rv">"Every time someone is missing, what to do now?" — Sneha</div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 08 · 10 Oct · Navratri</div>
+  <h2 class="rv">Khaane pe behes, aur shaanti ka samjhauta</h2>
+  <p class="rv">Navratri shuru hui aur Vikas Sir ne Shubham Sir ko yaad dilaya ki veg rehna hai. Group me aadhe ghante ki behes chali: science, geography, newton ke laws, sab nikal aaye. Dono taraf se punchlines the.</p>
+  <p class="rv">Phir Sneha Mam ne referee ban ke seedhi line boli: <em>"Food is personal choice. Khush raho sab."</em> Behes khatam, parathe phir se agenda me.</p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 06 · Plot twist</div>
+  <h2 class="rv">Group ke "nikaale gaye" log</h2>
+  <p class="rv">Is film me do hi baar curtain gira. Dono baar admin ki kursi hili.</p>
+  <div class="cards">
+    <div class="card out rv"><h3>Shubham Jaiswal</h3><div class="role">24 Feb · Vernit Sir ke haathon remove, kuch hi der me wapas</div>
+      <p>Harkat: group me aate hi "content" ban gaye. Saza: ek prank-remove. Faisla: dost the, wapas bula liye gaye.</p>
+      <div class="learn"><b>Seekh:</b> Sachche dost nikaalte kam, wapas bulate zyada hain.</div></div>
+    <div class="card out rv"><h3>Vernit Sir</h3><div class="role">22 Sept · Vartika Mam ne remove kiya</div>
+      <p>Harkat (chat ke hisaab se): kai baar messages delete karne pade jab Deepika Mam aur Sneha Mam ne <em>"please delete"</em> bola, photos ke liye zid, aur har jagah mazaak ki line cross karne ki aadat. Asli wajah chat me likhi nahi hai — ye kahani ka andaza hai.</p>
+      <div class="learn"><b>Seekh:</b> Mazaak tab tak mazaak hai jab tak sab hans rahe hon. Line ka khayal rakho, warna remove button dabta hai.</div></div>
+  </div>
+  <p class="rv" style="margin-top:1.4rem">Usi shaam Vartika Mam ne naye member <em>Taruna Mam (GBU)</em> ko add kar diya — "The show must go on."</p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 07 · Aaj, 17 October</div>
+  <h2 class="rv">Phone discharge ho gaya, aur poori police chat me</h2>
+  <p class="rv">Sneha Mam ka phone band, ghar wale pareshan. Group me sab pareshan — Vikas Sir ne lecture diya: <em>"Phone off hone se pehle bata diya karo."</em> Sneha Mam ne reply kiya: <em>"Jab main ghar se bhaagungi to reel bana ke jaungi — Vikas ne bahut help ki thi."</em> Vikas Sir ne haath jod liye: <em>"Badnaami bhi meri hi reel se honi hai!"</em></p>
+  <p class="rv">Aur Vartika Mam ne seedhi si baat kahi: <em>"Next time phone discharge ho to ghar pe kisi ko msg kar diya karo."</em> Yehi hai is squad ka pyaar — daant ke saath dhyaan.</p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 09 · July – Oct</div>
+  <h2 class="rv">Professor Vikas ki lab</h2>
+  <p class="rv">Jab camera band hota, Vikas Sir research mode me. IEEE papers ki formatting, book chapters ki deadline, reviewer forms, aur 10 July ko ek naya Claude subscription. Phir group ko quantum computing ke notes aur 30-din ka AI & ML roadmap bhi mil gaya.</p>
+  <div class="chat rv">"Try to understand the concepts rather than simply memorizing." — Vikas Sir, group ke teacher</div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Scene 10 · 13 October</div>
+  <h2 class="rv">Comedy night aur NIET ka naya image</h2>
+  <p class="rv">Taruna Mam ne 4 free passes ka entry code group me daala. Sneha Mam ne dinner ka plan banaya: <em>"No dhaba. Proper restaurant."</em> Shubham Sir ne apni ek hi shart rakhi — <em>"Yadav ji ke parathe 😀"</em>.</p>
+  <p class="rv">Din ke end me Shubham Sir ne apna review diya: <em>"Pehle mujhe lagta tha NIET vahiyat jagah hai, par aaj thoda achha laga."</em> Squad ke liye ye Oscar se kam nahi tha.</p>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Bonus · Chat Stats</div>
+  <h2 class="rv">Kaun kitna bola?</h2>
+  <div class="lb rv">
+    <div><span>Vikas</span><i style="--w:100%"></i><b>1831</b></div>
+    <div><span>Sneha</span><i style="--w:63%"></i><b>1152</b></div>
+    <div><span>Shubham</span><i style="--w:26%"></i><b>478</b></div>
+    <div><span>Vartika</span><i style="--w:14%"></i><b>263</b></div>
+    <div><span>Vernit</span><i style="--w:11%"></i><b>208</b></div>
+    <div><span>Deepika</span><i style="--w:4%"></i><b>71</b></div>
+    <div><span>Taruna</span><i style="--w:1%"></i><b>15</b></div>
+  </div>
+  <p class="rv" style="font-size:.9rem;color:var(--dim)">Messages + photos/videos milake. Camera man sabse zyada bola, to ye bhi "mastermind" ka saboot hai.</p>
+  <h2 class="rv" style="margin-top:2rem">OG Squad Awards 🏆</h2>
+  <div class="aw">
+    <div class="rv"><b>Best Camera Man</b>Vikas Sir</div>
+    <div class="rv"><b>Canteen Calling Queen</b>Sneha Mam</div>
+    <div class="rv"><b>Silent Punchline</b>Shubham Sir</div>
+    <div class="rv"><b>Group Police</b>Vartika Mam</div>
+    <div class="rv"><b>Prankster of the Year</b>Vernit Sir</div>
+    <div class="rv"><b>Consent Guard</b>Deepika Mam</div>
+    <div class="rv"><b>Best Entry</b>Taruna Mam</div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="cap rv">Cast · Tagda Character Cards</div>
+  <h2 class="rv">Sabki kahani, sabka tagda</h2>
+  <div class="cards">
+    <div class="card rv"><h3>Vikas Sir</h3><div class="role">Camera man · mastermind · research-paper machine</div>
+      <div class="tag">"Content sab ka, credit mera."</div>
+      <p>Har chat ka record, har plan ka screenshot, aur har jhagde ka "court tak jaunga" wala bayaan. Papers, quantum notes, AI roadmap — kaam bhi, comedy bhi.</p>
+      <div class="learn"><b>Seekh:</b> Kaam aur dosti saath chal sakte hain, bas dono ke liye time nikaalna padta hai.</div></div>
+    <div class="card rv"><h3>Shubham Sir</h3><div class="role">Cyber Security · chup rehne wala punchline king</div>
+      <div class="tag">"Kam bolo, par jab bolo to hit karo."</div>
+      <p>"Mujhe akele rehna pasand hai" bolkar sabse pehle canteen pahunchne wala. Comeback battles me Vikas Sir ko roz jawab diya — scooty vs car se lekar Ganga ke paap tak.</p>
+      <div class="learn"><b>Seekh:</b> Shaant rehne wala jab bolta hai, sabse zyada sunai deta hai. Aur dosti me ego se pehle hansi aani chahiye.</div></div>
+    <div class="card rv"><h3>Sneha Mam</h3><div class="role">Event manager · poll queen · "Hawwww!" ki owner</div>
+      <div class="tag">"Plan mera, bahaana tumhara."</div>
+      <p>Chai-coffee ki call, itinerary, poll, location share — group ki ghadi yahi hain. Sab nahi aate tab bhi plan follow karti hain: <em>"Din ka plan ho jaane do."</em></p>
+      <div class="learn"><b>Seekh:</b> Dosti bani rehti hai jab koi ek rozana pehla message karta hai.</div></div>
+    <div class="card rv"><h3>Vartika Mam</h3><div class="role">Group founder · peacekeeper · reminder bot</div>
+      <div class="tag">"Group maine banaya, rules bhi mere."</div>
+      <p>Birthday yaad dilaana, jhagde thande karna, aur zarurat padi to admin ka button dabaana. Ghar ke prasad se lekar paper-discussion tak sab sambhaalti hain.</p>
+      <div class="learn"><b>Seekh:</b> Shaanti rakho, par jab zaroorat ho to limit tay karna bhi dosti hai.</div></div>
+    <div class="card rv"><h3>Deepika Mam</h3><div class="role">Judge · "consent" ki awaaz · group ki mystery</div>
+      <div class="tag">"Judge main, faisla bhi main."</div>
+      <p>Kam bolti hain par jab bolti hain to point pe. Bina consent video banane par seedha toka. Group ko unhe "bulana hai ya nahi" ka sawaal bhi sabse bada suspense tha.</p>
+      <div class="learn"><b>Seekh:</b> Dosti me bhi "pehle puchho" ka rule hota hai. Consent mazaak se bada hai.</div></div>
+    <div class="card out rv"><h3>Vernit Sir</h3><div class="role">Prankster · photo-demander · ex-admin</div>
+      <div class="tag">"Admin ban gaya, to sabka boss."</div>
+      <p>Group ka naam badla, photos maange, menu list ka rasta dikhaya, aur topper ban kar bhi party ke liye ro diya. Phir ek din Vartika Mam ne sab hata diya.</p>
+      <div class="learn"><b>Seekh:</b> Mazaak ki limit pehchano, warna group se pehle dil se nikal jaoge.</div></div>
+    <div class="card rv"><h3>Taruna Mam (GBU)</h3><div class="role">Nayi entry · comedy-pass wali</div>
+      <div class="tag">"Free pass le aayi hoon, dosti mere saath."</div>
+      <p>Aate hi Highlane Comedy Club ke 4 passes group me daal diye. Baaki group ne uska scam-warning se welcome kiya (Sneha Mam ke hisaab se).</p>
+      <div class="learn"><b>Seekh:</b> Naye logo ko kuch baant kar welcome karo, dosti wahin se shuru hoti hai.</div></div>
+  </div>
+</section>
+
+<section class="scene final">
+  <div class="cap rv">Is poori kahani se seekh</div>
+  <blockquote class="rv">Dost wo nahi jo kabhi jhagda na kare — dost wo jo jhagde ke baad bhi canteen me chai pe bula le.</blockquote>
+  <p class="rv" style="color:var(--dim);margin-top:1.4rem;max-width:34ch">Chat se likhi gayi ek filmy kahani. Mazaak ke liye hai — sab dost, sab apne. ❤️</p>
+  <div class="end rv">THE END · OG SQUAD</div>
+</section>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+/* themes */
+const R=document.documentElement;
+function setT(t){R.setAttribute('data-theme',t);document.querySelectorAll('.themes button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));try{localStorage.setItem('ogt',t)}catch(e){}}
+document.querySelectorAll('.themes button').forEach(b=>b.onclick=()=>setT(b.dataset.t));
+try{const s=localStorage.getItem('ogt');if(s)setT(s)}catch(e){}
+/* scene animations */
+const FX=[['✨'],['💬'],['🎬','🚪'],['❤️','💬'],['🎂','🎈','🎉'],['💪','🍌'],['🍎','🍌'],['🎬','🍿'],['🪔','🥗'],['🚨','⚡'],['📱','🔋'],['⚛️','📚'],['🎤','😂'],['🏆','⭐'],['🎥','☕'],['❤️','☕']];
+const sc=[...document.querySelectorAll('.scene')];
+sc.forEach((s,i)=>{const h=s.querySelector('h2');if(i===9&&h)h.classList.add('glitch')});
+let timer;
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const e2=FX[sc.indexOf(e.target)]||['✨'];clearInterval(timer);timer=setInterval(()=>{const f=document.createElement('span');f.className='fx';f.textContent=e2[Math.floor(Math.random()*e2.length)];f.style.left=Math.random()*92+'vw';document.body.appendChild(f);setTimeout(()=>f.remove(),6000)},900)}),{threshold:.55});
+sc.forEach(s=>so.observe(s));
+const lb=document.querySelector('.lb');if(lb)new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)lb.classList.add('on')}),{threshold:.4}).observe(lb);
+</script>
+</body>
+</html>
